@@ -1,0 +1,61 @@
+<%- include('partials/header'); -%>
+
+<style>
+   .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+  form {
+        max-width: 400px;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }  img {
+        max-width: 100%;
+        height: auto;
+        margin-right: 20px;  
+    }
+   @media screen and (max-width: 600px) {
+        .container {
+            flex-direction: column;
+            text-align: center;
+        }
+  img {
+            max-width: 100%;
+            margin-right: 0;
+            margin-bottom: 20px;  
+        }
+    }
+</style>
+
+<div class="container">
+    <img src="https://blush.design/api/download?shareUri=ZlLKR6iAG8Z7nS0d&c=Skin_0%7Effdbb4&w=800&h=800&fm=png" alt="abc" height="300em" width="300em">
+
+    <form action="signup">
+        <h1>Sign up</h1>
+    
+        <label for="email">Email</label>
+        <input type="text" name="email" required>
+        <div id="email-error"></div>
+        <label for="password">Password</label>
+        <input type="password" name="password" required>
+        <div id="password-error"></div>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <button id="signup-action">Register</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    });
+</script>
+
+<%- include('partials/footer'); -%>
